@@ -1,15 +1,26 @@
 import React, { useState } from "react";
 
-export const WordInput = (p) => {
-  let [i, si] = useState("");
-  const ci = (e) => {
-    si(e.target.value);
-    p.setInputTOHighLigh(i);
+export const WordInput = ({ pRef, toogle }) => {
+  let [word, setWord] = useState("");
+  const highlighter = (e) => {
+    const typed = e.target.value;
+    setWord(typed);
+    if (!typed) {
+      return;
+    }
+    if (toogle) {
+      let resultWord = new RegExp(typed, "ig");
+    }
   };
   return (
     <>
       <label htmlFor="word-input">Enter word to be highlighted here</label>
-      <input id="word-input" type={"text"} value={i} onChange={ci} />
+      <input
+        id="word-input"
+        type={"text"}
+        value={word}
+        onChange={highlighter}
+      />
     </>
   );
 };
@@ -17,10 +28,8 @@ export const WordInput = (p) => {
 // //////////////main work
 function highlight() {
   let newParaElText = "";
-  let count = 0;
   const paraEl = document.querySelector("#paragraph-input");
   const word = document.querySelector("#word-input");
-  const wordCounterEl = document.querySelector("#words-counter");
   const ignoreCaseInput = document.querySelector("#ignore-case").checked;
   console.log(ignoreCaseInput);
   if (!word.value) return;
