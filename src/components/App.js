@@ -1,18 +1,21 @@
-import React from 'react'
-import '../styles/App.css';
-import { IgnoreCaseToggle } from './IgnoreCaseToggle';
-import { ParagraphInput } from './ParagraphInput';
-import { WordInput } from './WordInput';
+import React from "react";
+import { useState, useRef } from "react";
+import "../styles/App.css";
+import { IgnoreCaseToggle } from "./IgnoreCaseToggle";
+import { ParagraphInput } from "./ParagraphInput";
+import { WordInput } from "./WordInput";
 const App = () => {
+  const [toogle, setToggle] = useState(false);
+  // para ref
+  const pRef = useRef();
   return (
     <div id="main">
-      <ParagraphInput />
-      <WordInput/>
+      <ParagraphInput pRef={pRef} />
+      <WordInput pRef={pRef} toogle={toogle} />
       <br />
-      <IgnoreCaseToggle/>
+      <IgnoreCaseToggle setToggle={setToggle} />
     </div>
-  )
-}
-
+  );
+};
 
 export default App;
