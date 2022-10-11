@@ -1,18 +1,14 @@
 import React, { useState } from "react";
+import { useEffect } from "react/cjs/react.production.min";
 import "../styles/App.css";
 
 export const WordInput = ({ pRef, toogle }) => {
   let [word, setWord] = useState("");
+
   const highlighter = (e) => {
     e.preventDefault();
     const typed = e.target.value;
     setWord(typed);
-
-    // if (!typed) {
-    //   return;
-    // }
-    // value inside div
-    // console.log(pRef.current.innerText);
     const paraEl = pRef.current.innerText;
     let newParaElText = "";
     // console.log("hiii", paraEl, toogle);
@@ -34,6 +30,8 @@ export const WordInput = ({ pRef, toogle }) => {
     }
     pRef.current.innerHTML = newParaElText;
   };
+
+  // useEffect(() => highlighter(), [toogle]);
   return (
     <>
       <label htmlFor="word-input">Enter word to be highlighted here</label>
