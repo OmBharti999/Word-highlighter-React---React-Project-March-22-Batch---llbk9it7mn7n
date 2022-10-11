@@ -1,16 +1,35 @@
 import React, { useState } from "react";
+import "../styles/App.css";
 
 export const WordInput = ({ pRef, toogle }) => {
   let [word, setWord] = useState("");
   const highlighter = (e) => {
+    e.preventDefault();
     const typed = e.target.value;
     setWord(typed);
     if (!typed) {
       return;
     }
+    // value inside div
+    // console.log(pRef.current.innerText);
+    const paraEl = pRef.current.innerText;
+    let newParaElText = "";
+    console.log("hiii", paraEl, toogle);
     if (toogle) {
       let resultWord = new RegExp(typed, "ig");
+      newParaElText = paraEl.innerText.replaceAll(resultWord, (section) => {
+        console.log("section", section);
+
+        return `<span class="highlighted-txt">${section}</span>`;
+      });
+    } else {
+      newParaElText = paraEl.innerText.replaceAll(typed, (section) => {
+        console.log(section);
+        count++;
+        return `<span class="highlighted-txt">${section}</span>`;
+      });
     }
+    pRef.current.innerHTML = newParaElText;
   };
   return (
     <>
