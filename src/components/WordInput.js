@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useEffect } from "react/cjs/react.production.min";
+
 import "../styles/App.css";
 
 export const WordInput = ({ pRef, toogle }) => {
@@ -31,7 +31,6 @@ export const WordInput = ({ pRef, toogle }) => {
     pRef.current.innerHTML = newParaElText;
   };
 
-  // useEffect(() => highlighter(), [toogle]);
   return (
     <>
       <label htmlFor="word-input">Enter word to be highlighted here</label>
