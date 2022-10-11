@@ -14,9 +14,11 @@ export const WordInput = ({ pRef, toogle }) => {
     // console.log(pRef.current.innerText);
     const paraEl = pRef.current.innerText;
     let newParaElText = "";
-    console.log("hiii", paraEl, toogle);
+    // console.log("hiii", paraEl, toogle);
+    // togel and inner text coming
     if (toogle) {
       let resultWord = new RegExp(typed, "ig");
+      console.log("result", resultWord);
       newParaElText = paraEl.innerText.replaceAll(resultWord, (section) => {
         console.log("section", section);
 
