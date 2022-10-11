@@ -8,10 +8,9 @@ export const WordInput = ({ pRef, toogle }) => {
     const typed = e.target.value;
     setWord(typed);
 
-    // pRef.current.innerText = "hiiiiiiii";
-    if (!typed) {
-      return;
-    }
+    // if (!typed) {
+    //   return;
+    // }
     // value inside div
     // console.log(pRef.current.innerText);
     const paraEl = pRef.current.innerText;
