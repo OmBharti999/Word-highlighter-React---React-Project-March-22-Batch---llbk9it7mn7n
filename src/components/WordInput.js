@@ -7,6 +7,8 @@ export const WordInput = ({ pRef, toogle }) => {
     e.preventDefault();
     const typed = e.target.value;
     setWord(typed);
+
+    pRef.current.innerText = "hiiiiiiii";
     if (!typed) {
       return;
     }
