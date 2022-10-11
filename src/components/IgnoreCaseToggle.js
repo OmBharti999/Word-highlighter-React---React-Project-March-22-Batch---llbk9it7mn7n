@@ -1,10 +1,14 @@
-import React from 'react';
+import React from "react";
 
-export const IgnoreCaseToggle = () => {
-    return (
-        <>
-            <label htmlFor="ignore-case">Ignore case?</label>
-            <input type="checkbox" id="ignore-case"/>
-        </>
-    )
-}
+export const IgnoreCaseToggle = (p) => {
+  return (
+    <>
+      <label htmlFor="ignore-case">Ignore case?</label>
+      <input
+        type="checkbox"
+        id="ignore-case"
+        onChange={(e) => p.setToggle(e.target.checked)}
+      />
+    </>
+  );
+};
